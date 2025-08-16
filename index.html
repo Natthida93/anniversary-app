@@ -3,154 +3,199 @@
 <head>
   <meta charset="UTF-8">
   <title>Our Anniversary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-  body {
-  font-family: Arial, sans-serif;
-  background: url("images/bg2.jpg") no-repeat center center fixed;
-  background-size: cover; /* makes it cover the screen */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-
-.cute-text {
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  color: #ff1493;
-  font-weight: bold;
-  line-height: 1.6;
-  margin: 20px 0;
-}
-
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      background: url("images/bg2.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
     .container {
-      background-color: #fff;
-      padding: 20px;
+      background: rgba(255,255,255,0.85);
+      padding: 2rem;
       border-radius: 16px;
       text-align: center;
       width: 90%;
       max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 0 2rem rgba(255,20,147,0.4);
+      position: relative;
+      height: auto;
     }
 
-/* Default H1 (Page 1, etc.) */
-h1 {
-  color: #ff1493;
-  font-size: 28px;
-  margin-bottom: 15px;
-}
+    h1 { color: #ff1493; font-size: 2.8rem; margin-bottom: 15px; }
 
-/* Special banner for Page 2 */
-h1.banner {
-  background: linear-gradient(135deg, #ff80bf, #ff1493);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 12px;
-  display: inline-block;
-  font-size: 26px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(255, 20, 147, 0.3);
-}
+    h1.banner {
+      background: linear-gradient(135deg, #ff80bf, #ff1493);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(255,20,147,0.3);
+      box-sizing: border-box;
+      word-wrap: break-word;
+      white-space: normal;
+      text-align: center;
+    }
 
+    .typing {
+      display: inline-block;
+      overflow: hidden;
+      border-right: .15em solid #ff1493;
+      letter-spacing: .05em;
+      animation: blink-caret .7s step-end infinite;
+      box-sizing: border-box;
+      text-align: center;
+    }
 
+    @keyframes blink-caret { from, to {border-color: transparent;} 50% {border-color: #ff1493;} }
 
-    p {
-      font-size: 16px;
-      color: #333;
+    .cute-text {
+      font-size: 1.8rem;
+      color: #ff1493;
+      font-weight: 600;
       line-height: 1.5;
+      margin: 20px 0;
+      animation: floatText 4s ease-in-out infinite;
     }
+    @keyframes floatText { 0%{transform:translateY(0);}50%{transform:translateY(-1.5rem);}100%{transform:translateY(0);} }
+
+    p { font-size: 1.6rem; color: #333; line-height: 1.5; }
 
     .btn {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      margin-top: 15px;
-      transition: all 0.3s ease;
+      padding:1rem 2.8rem;
+      font-size:1.6rem;
+      cursor:pointer;
+      background-color:#ff69b4;
+      color:white;
+      border-radius:8px;
+      margin-top:15px;
+      transition:0.3s;
       position: relative;
     }
-
-    .btn:hover {
-      background-color: #ff1493;
-    }
+    .btn:hover{background-color:#ff1493;}
 
     img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-top: 15px;
+      max-width:100%;
+      height:auto;
+      border-radius:12px;
+      margin-top:15px;
+      animation: floatImage 4s ease-in-out infinite;
+    }
+    @keyframes floatImage {0%{transform:translateY(0);}50%{transform:translateY(-2rem);}100%{transform:translateY(0);} }
+
+    .hidden { display:none; }
+
+    @media(max-width:500px){
+      h1{font-size:2rem;}
+      h1.banner{font-size:2rem;}
+      .cute-text{font-size:1.4rem;}
+      .btn{font-size:1.4rem;padding:0.8rem 2rem;}
     }
 
-    .hidden {
-      display: none;
-    }
+    /* Page 2 text smaller */
+    #page2 .banner { font-size: 1.8rem; }
+    #page2 .cute-text { font-size: 1.4rem; }
+
   </style>
 </head>
 <body>
   <div class="container">
+
     <!-- Page 1 -->
     <div id="page1">
       <h1>Happy Anniversary</h1>
-      <h1> 𐙚₊🧸˚💗⊹♡. </h1>
-      <img src="images/iu.jpg" alt="Us"> <!-- Replace with your photo -->
+      <h1>𐙚₊🧸˚💗⊹♡.</h1>
+      <img src="images/try1.gif" alt="Us">
       <button class="btn" onclick="nextPage(2)">Next</button>
     </div>
 
-<!-- Page 2 -->
-<div id="page2" class="hidden">
-  <h1 class="banner"> My Feelings for You 🎀 </h1>
-  <h2 class="cute-text">
-    Being with you has been the most beautiful part of my life.<br>
-    You make me smile, laugh, and feel loved every day.<br>
-    I am so grateful for you. 💕
-  </h2>
-  <button class="btn" onclick="nextPage(3)">Next</button>
-</div>
-
-
-
+    <!-- Page 2 -->
+    <div id="page2" class="hidden">
+      <h1 class="banner"> My Feelings for You 🎀 </h1>
+      <h2 class="cute-text">
+        Being with you has been the most beautiful part of my life.<br>
+        You make me smile, laugh, and feel loved every day.<br>
+        I am so grateful for you. 💕
+      </h2>
+      <button class="btn" onclick="nextPage(3)">Next</button>
+    </div>
 
     <!-- Page 3 -->
     <div id="page3" class="hidden">
-      <h1>We can last forever</h1>
+      <h1 class="typing">A Question</h1>
       <p>Will you be with me forever? 💖</p>
       <button class="btn" onclick="yesClick()">Yes 💕</button>
       <button class="btn" id="noBtn">No 😢</button>
     </div>
+
+    <!-- Page 4 / final love page -->
+    <div id="page4" class="hidden">
+      <h1 id="loveHeader" class="banner"></h1>
+      <img src="images/obanai.gif" alt="Love GIF">
+    </div>
+
   </div>
 
   <script>
-function nextPage(page) {
-  document.querySelectorAll(".container > div").forEach(div => div.classList.add("hidden"));
-  document.getElementById("page" + page).classList.remove("hidden");
-}
+    function nextPage(page){
+      document.querySelectorAll(".container > div").forEach(div=>div.classList.add("hidden"));
+      const next = document.getElementById("page"+page);
+      next.classList.remove("hidden");
 
-function yesClick() {
-  const container = document.querySelector(".container");
-  container.innerHTML = `
-    <h1>Let's be together FOREVER</h1>
-    <img src="images/obanai.gif" alt="Love GIF" style="max-width:100%; border-radius:12px; margin-top:15px;">
-  `;
-}
+      // Reset typing animation on existing .typing elements
+      const typingHeaders = next.querySelectorAll(".typing");
+      typingHeaders.forEach(el=>{
+        el.style.animation='none';
+        void el.offsetWidth;
+        el.style.animation='';
+      });
 
-// Make "No" button move randomly
-const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", () => {
-  const container = document.querySelector(".container");
-  const maxX = container.clientWidth - noBtn.clientWidth;
-  const maxY = container.clientHeight - noBtn.clientHeight;
-  const randX = Math.floor(Math.random() * maxX);
-  const randY = Math.floor(Math.random() * maxY);
-  noBtn.style.position = "absolute";
-  noBtn.style.left = randX + "px";
-  noBtn.style.top = randY + "px";
-});
-</script>
+      // For page 4, start JS typing
+      if(page===4){
+        const loveHeader = document.getElementById('loveHeader');
+        typeText(loveHeader, "Love MISTSURI", 100);
+      }
+    }
+
+    // JS function for multi-line typing
+    function typeText(element, text, speed = 100){
+      element.innerHTML = '';
+      let i = 0;
+      function typing(){
+        if(i < text.length){
+          element.innerHTML += text[i];
+          i++;
+          setTimeout(typing, speed);
+        }
+      }
+      typing();
+    }
+
+    function yesClick(){
+      nextPage(4);
+    }
+
+    // "No" button moves randomly
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", ()=>{
+      const container = document.querySelector(".container");
+      const maxX = container.clientWidth - noBtn.clientWidth;
+      const maxY = container.clientHeight - noBtn.clientHeight;
+      const randX = Math.floor(Math.random()*maxX);
+      const randY = Math.floor(Math.random()*maxY);
+      noBtn.style.position="absolute";
+      noBtn.style.left=randX+"px";
+      noBtn.style.top=randY+"px";
+    });
+  </script>
+</body>
+</html>
