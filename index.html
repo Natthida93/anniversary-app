@@ -3,16 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Our Anniversary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffd1dc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+  body {
+  font-family: Arial, sans-serif;
+  background: url("images/bg2.jpg") no-repeat center center fixed;
+  background-size: cover; /* makes it cover the screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+
+.cute-text {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #ff1493;
+  font-weight: bold;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+
 
     .container {
       background-color: #fff;
@@ -24,9 +39,26 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
-    h1 {
-      color: #ff1493;
-    }
+/* Default H1 (Page 1, etc.) */
+h1 {
+  color: #ff1493;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+/* Special banner for Page 2 */
+h1.banner {
+  background: linear-gradient(135deg, #ff80bf, #ff1493);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 26px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(255, 20, 147, 0.3);
+}
+
+
 
     p {
       font-size: 16px;
@@ -66,21 +98,25 @@
   <div class="container">
     <!-- Page 1 -->
     <div id="page1">
-      <h1>Happy Anniversary 💖</h1>
-      <img src="images/photo.jpeg" alt="Us"> <!-- Replace with your photo -->
+      <h1>Happy Anniversary</h1>
+      <h1> 𐙚₊🧸˚💗⊹♡. </h1>
+      <img src="images/iu.jpg" alt="Us"> <!-- Replace with your photo -->
       <button class="btn" onclick="nextPage(2)">Next</button>
     </div>
 
-    <!-- Page 2 -->
-    <div id="page2" class="hidden">
-      <h1>My Feelings for You 🌹</h1>
-      <p>
-        Being with you has been the most beautiful part of my life.<br>
-        You make me smile, laugh, and feel loved every day.<br>
-        I am so grateful for you. 💕
-      </p>
-      <button class="btn" onclick="nextPage(3)">Next</button>
-    </div>
+<!-- Page 2 -->
+<div id="page2" class="hidden">
+  <h1 class="banner"> My Feelings for You 🎀 </h1>
+  <h2 class="cute-text">
+    Being with you has been the most beautiful part of my life.<br>
+    You make me smile, laugh, and feel loved every day.<br>
+    I am so grateful for you. 💕
+  </h2>
+  <button class="btn" onclick="nextPage(3)">Next</button>
+</div>
+
+
+
 
     <!-- Page 3 -->
     <div id="page3" class="hidden">
@@ -101,7 +137,7 @@ function yesClick() {
   const container = document.querySelector(".container");
   container.innerHTML = `
     <h1>Let's be together FOREVER</h1>
-    <img src="images/giphy.gif" alt="Love GIF" style="max-width:100%; border-radius:12px; margin-top:15px;">
+    <img src="images/obanai.gif" alt="Love GIF" style="max-width:100%; border-radius:12px; margin-top:15px;">
   `;
 }
 
