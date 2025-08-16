@@ -6,13 +6,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
     body {
       background: url("images/bg2.jpg") no-repeat center center fixed;
       background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 1rem;
     }
 
     .container {
@@ -20,30 +22,27 @@
       padding: 2rem;
       border-radius: 16px;
       text-align: center;
-      width: 90%;
-      max-width: 400px;
+      width: 100%;
+      max-width: 500px;  /* slightly wider for larger devices */
       box-shadow: 0 0 2rem rgba(255,20,147,0.4);
       position: relative;
-      height: auto;
     }
 
-    h1 { color: #ff1493; font-size: 2.8rem; margin-bottom: 15px; }
+    h1 { color: #ff1493; font-size: 2.5rem; margin-bottom: 1rem; word-wrap: break-word; }
 
     h1.banner {
       background: linear-gradient(135deg, #ff80bf, #ff1493);
       color: white;
-      padding: 12px 20px;
+      padding: 1rem;
       border-radius: 12px;
       display: block;
-      width: 100%;
-      max-width: 100%;
-      font-size: 2.4rem;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
       box-shadow: 0 4px 8px rgba(255,20,147,0.3);
-      box-sizing: border-box;
-      word-wrap: break-word;
-      white-space: normal;
+      width: 100%;
       text-align: center;
+      white-space: normal;
+      word-wrap: break-word;
     }
 
     .typing {
@@ -52,32 +51,33 @@
       border-right: .15em solid #ff1493;
       letter-spacing: .05em;
       animation: blink-caret .7s step-end infinite;
-      box-sizing: border-box;
+      word-wrap: break-word;
+      white-space: normal;
       text-align: center;
+      font-size: 2rem;
     }
-
     @keyframes blink-caret { from, to {border-color: transparent;} 50% {border-color: #ff1493;} }
 
     .cute-text {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       color: #ff1493;
       font-weight: 600;
       line-height: 1.5;
-      margin: 20px 0;
+      margin: 1rem 0;
       animation: floatText 4s ease-in-out infinite;
     }
-    @keyframes floatText { 0%{transform:translateY(0);}50%{transform:translateY(-1.5rem);}100%{transform:translateY(0);} }
+    @keyframes floatText { 0%{transform:translateY(0);}50%{transform:translateY(-1rem);}100%{transform:translateY(0);} }
 
-    p { font-size: 1.6rem; color: #333; line-height: 1.5; }
+    p { font-size: 1.2rem; color: #333; line-height: 1.5; }
 
     .btn {
-      padding:1rem 2.8rem;
-      font-size:1.6rem;
+      padding: 0.8rem 2rem;
+      font-size: 1.4rem;
       cursor:pointer;
       background-color:#ff69b4;
       color:white;
       border-radius:8px;
-      margin-top:15px;
+      margin-top:1rem;
       transition:0.3s;
       position: relative;
     }
@@ -87,23 +87,30 @@
       max-width:100%;
       height:auto;
       border-radius:12px;
-      margin-top:15px;
+      margin-top:1rem;
       animation: floatImage 4s ease-in-out infinite;
     }
-    @keyframes floatImage {0%{transform:translateY(0);}50%{transform:translateY(-2rem);}100%{transform:translateY(0);} }
+    @keyframes floatImage {0%{transform:translateY(0);}50%{transform:translateY(-1.5rem);}100%{transform:translateY(0);} }
 
     .hidden { display:none; }
 
-    @media(max-width:500px){
+    /* Page 2 text smaller */
+    #page2 .banner { font-size: 1.6rem; }
+    #page2 .cute-text { font-size: 1.2rem; }
+
+    @media(max-width:600px){
       h1{font-size:2rem;}
-      h1.banner{font-size:2rem;}
-      .cute-text{font-size:1.4rem;}
-      .btn{font-size:1.4rem;padding:0.8rem 2rem;}
+      h1.banner{font-size:1.5rem; padding:0.8rem;}
+      .cute-text{font-size:1rem;}
+      .btn{font-size:1.2rem; padding:0.6rem 1.5rem;}
     }
 
-    /* Page 2 text smaller */
-    #page2 .banner { font-size: 1.8rem; }
-    #page2 .cute-text { font-size: 1.4rem; }
+    @media(max-width:400px){
+      h1{font-size:1.6rem;}
+      h1.banner{font-size:1.2rem; padding:0.5rem;}
+      .cute-text{font-size:0.9rem;}
+      .btn{font-size:1rem; padding:0.5rem 1rem;}
+    }
 
   </style>
 </head>
@@ -151,7 +158,6 @@
       const next = document.getElementById("page"+page);
       next.classList.remove("hidden");
 
-      // Reset typing animation on existing .typing elements
       const typingHeaders = next.querySelectorAll(".typing");
       typingHeaders.forEach(el=>{
         el.style.animation='none';
@@ -159,15 +165,13 @@
         el.style.animation='';
       });
 
-      // For page 4, start JS typing
       if(page===4){
         const loveHeader = document.getElementById('loveHeader');
-        typeText(loveHeader, "Love MISTSURI", 100);
+        typeText(loveHeader, "Love MISTSURI💕", 80);
       }
     }
 
-    // JS function for multi-line typing
-    function typeText(element, text, speed = 100){
+    function typeText(element, text, speed = 80){
       element.innerHTML = '';
       let i = 0;
       function typing(){
@@ -184,7 +188,6 @@
       nextPage(4);
     }
 
-    // "No" button moves randomly
     const noBtn = document.getElementById("noBtn");
     noBtn.addEventListener("mouseover", ()=>{
       const container = document.querySelector(".container");
