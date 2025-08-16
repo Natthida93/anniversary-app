@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Anniversary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffd1dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff1493;
+    }
+
+    p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .btn:hover {
+      background-color: #ff1493;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Page 1 -->
+    <div id="page1">
+      <h1>Happy Anniversary 💖</h1>
+      <img src="images/photo.jpeg" alt="Us"> <!-- Replace with your photo -->
+      <button class="btn" onclick="nextPage(2)">Next</button>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="hidden">
+      <h1>My Feelings for You 🌹</h1>
+      <p>
+        Being with you has been the most beautiful part of my life.<br>
+        You make me smile, laugh, and feel loved every day.<br>
+        I am so grateful for you. 💕
+      </p>
+      <button class="btn" onclick="nextPage(3)">Next</button>
+    </div>
+
+    <!-- Page 3 -->
+    <div id="page3" class="hidden">
+      <h1>We can last forever</h1>
+      <p>Will you be with me forever? 💖</p>
+      <button class="btn" onclick="yesClick()">Yes 💕</button>
+      <button class="btn" id="noBtn">No 😢</button>
+    </div>
+  </div>
+
+  <script>
+function nextPage(page) {
+  document.querySelectorAll(".container > div").forEach(div => div.classList.add("hidden"));
+  document.getElementById("page" + page).classList.remove("hidden");
+}
+
+function yesClick() {
+  const container = document.querySelector(".container");
+  container.innerHTML = `
+    <h1>Let's be together FOREVER</h1>
+    <img src="images/giphy.gif" alt="Love GIF" style="max-width:100%; border-radius:12px; margin-top:15px;">
+  `;
+}
+
+// Make "No" button move randomly
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+  const container = document.querySelector(".container");
+  const maxX = container.clientWidth - noBtn.clientWidth;
+  const maxY = container.clientHeight - noBtn.clientHeight;
+  const randX = Math.floor(Math.random() * maxX);
+  const randY = Math.floor(Math.random() * maxY);
+  noBtn.style.position = "absolute";
+  noBtn.style.left = randX + "px";
+  noBtn.style.top = randY + "px";
+});
+</script>
